@@ -23,28 +23,10 @@ var makeBoolean = function makeBoolean(bool) {
   return (bool !== 'false' && bool !== 'no');
 };
 
-commander
-  .version(config.version)
-  .option('-z, --zip <zipcode>', 'Zipcode to use for location', '98103')
-  .option('-b, --begin <date>', 'Start date (today)', makeDate, today)
-  .option('-e, --end <date>', 'End date (end of this year)', makeDate, endOfThisYear)
-  .option('-r, --sunrise <boolen>', 'Whether to export sunrise (true)', makeBoolean, true)
-  .option('-s, --sunset <boolen>', 'Whether to export sunset (true)', makeBoolean, true)
-  .parse(process.argv);
-
-var gps = zip.zipcode(commander.zip);
-var day = commander.begin;
-if (!day.getHours()) {
-  day = new Date(day.getFullYear(), day.getMonth(), day.getDate(),
+var normalizeDate = function normalizeDate(date) {
+  return new Date(date.getFullYear(), date.getMonth(), date.getDate(),
     today.getHours(), today.getMinutes(), today.getSeconds());
-}
-
-var total = 0;
-
-// Google Calendar csv docs here: https://support.google.com/calendar/answer/45656
-// Subject,Start Date,Start Time,End Date,End Time
-// Final Exam,05/12/20,07:10:00 PM,05/12/20,10:00:00 PM,False
-console.log('Subject,Start Date,Start Time,End Date,End Time,Description');
+};
 
 var getEndTime = function getEndTime(start) {
   return time.offset(1000 * 50 * 15, start);
@@ -66,7 +48,27 @@ var createItem = function createItem(name, date, daylight) {
   return result;
 };
 
-while (day.getTime() <= commander.end.getTime()) {
+commander
+  .version(config.version)
+  .option('-z, --zip <zipcode>', 'Zipcode to use for location', '98103')
+  .option('-b, --begin <date>', 'Start date (today)', makeDate, today)
+  .option('-e, --end <date>', 'End date (end of this year)', makeDate, endOfThisYear)
+  .option('-r, --sunrise <boolen>', 'Whether to export sunrise (true)', makeBoolean, true)
+  .option('-s, --sunset <boolen>', 'Whether to export sunset (true)', makeBoolean, true)
+  .parse(process.argv);
+
+var gps = zip.zipcode(commander.zip);
+var day = normalizeDate(commander.begin);
+var end = normalizeDate(commander.end);
+
+var total = 0;
+
+// Google Calendar csv docs here: https://support.google.com/calendar/answer/45656
+// Subject,Start Date,Start Time,End Date,End Time
+// Final Exam,05/12/20,07:10:00 PM,05/12/20,10:00:00 PM,False
+console.log('Subject,Start Date,Start Time,End Date,End Time,Description');
+
+while (day.getTime() <= end.getTime()) {
   total += 1;
 
   var times = suncalc.getTimes(day, gps.latitude, gps.longitude);
@@ -84,4 +86,5 @@ while (day.getTime() <= commander.end.getTime()) {
   }
 
   day = time.offset(time.DAY_IN_MIL, day);
+  day = normalizeDate(day);
 }
