@@ -1,0 +1,34 @@
+{
+  "name": "seasons",
+  "version": "0.1.0",
+  "main": "index.js",
+
+  "dependencies": {
+    "commander": "2.3.0",
+    "suncalc": "1.5.2",
+    "thehelp-time": "0.5.1",
+    "zippity-do-dah": "0.0.2"
+  },
+  "devDependencies": {
+    "grunt": "0.4.5",
+    "thehelp-project": "3.3.1"
+  },
+
+  "scripts": {
+    "test": "grunt"
+  },
+
+  "description": "Exports calendar entries for sunrise/sunset",
+  "keywords": [
+    "calendar",
+    "sunrise",
+    "sunset"
+  ],
+
+  "author": "Scott Nonnenberg <scott@nonnenberg.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@infra:seasons"
+  }
+}
