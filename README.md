@@ -5,3 +5,7 @@ TODO: more reliable increment for day - add a day, then reset to the right time.
 TODO: generate it in a more friendly way for spreadsheets?
   sunrise and sunset on the same row
   real times included along with separated date and time?
+
+TODO: add some stuff for equinoxes/solstices?
+TODO: add stuff for the other four holidays?
+  http://www.archaeoastronomy.com/2014.html
