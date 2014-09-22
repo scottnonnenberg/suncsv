@@ -53,8 +53,8 @@ commander
   .option('-z, --zip <zipcode>', 'Zipcode to use for location', '98103')
   .option('-b, --begin <date>', 'Start date (today)', makeDate, today)
   .option('-e, --end <date>', 'End date (end of this year)', makeDate, endOfThisYear)
-  .option('-r, --sunrise <boolen>', 'Whether to export sunrise (true)', makeBoolean, true)
-  .option('-s, --sunset <boolen>', 'Whether to export sunset (true)', makeBoolean, true)
+  .option('-r, --sunrise <boolean>', 'Whether to export sunrise (true)', makeBoolean, true)
+  .option('-s, --sunset <boolean>', 'Whether to export sunset (true)', makeBoolean, true)
   .parse(process.argv);
 
 var gps = zip.zipcode(commander.zip);
