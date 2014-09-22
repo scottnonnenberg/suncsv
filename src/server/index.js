@@ -19,11 +19,17 @@ var makeDate = function makeDate(date) {
   return new Date(date);
 };
 
+var makeBoolean = function makeBoolean(bool) {
+  return (bool !== 'false' && bool !== 'no');
+};
+
 commander
   .version(config.version)
   .option('-z, --zip <zipcode>', 'Zipcode to use for location', '98103')
   .option('-b, --begin <date>', 'Start date (today)', makeDate, today)
   .option('-e, --end <date>', 'End date (end of this year)', makeDate, endOfThisYear)
+  .option('-r, --sunrise <boolen>', 'Whether to export sunrise (true)', makeBoolean, true)
+  .option('-s, --sunset <boolen>', 'Whether to export sunset (true)', makeBoolean, true)
   .parse(process.argv);
 
 var gps = zip.zipcode(commander.zip);
@@ -67,10 +73,15 @@ while (day.getTime() <= commander.end.getTime()) {
   var daylight = times.sunset.getTime() - times.sunrise.getTime();
   daylight = time.renderTimespan(daylight);
 
-  var item = createItem('Sunrise', times.sunrise, daylight);
-  console.log(item);
-  var item = createItem('Sunset', times.sunset, daylight);
-  console.log(item);
+  if (commander.sunrise) {
+    var item = createItem('Sunrise', times.sunrise, daylight);
+    console.log(item);
+  }
+
+  if (commander.sunset) {
+    var item = createItem('Sunset', times.sunset, daylight);
+    console.log(item);
+  }
 
   day = time.offset(time.DAY_IN_MIL, day);
 }
