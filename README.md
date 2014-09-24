@@ -1,6 +1,6 @@
 # suncsv
 
-Exports events for sunrise/sunset in CSV form for import into your favorite calendar program.
+Generates sunrise and sunset calendar items in CSV form for import to your favorite calendar program.
 
 ## Setup
 
