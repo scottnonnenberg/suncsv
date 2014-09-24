@@ -1,11 +1,15 @@
 {
-  "name": "seasons",
+  "name": "suncsv",
   "version": "0.1.0",
-  "main": "index.js",
-  "private": true,
+  "main": "src/server/util.js",
+  "bin": {
+    "sunscv": "bin/suncsv"
+  },
 
   "dependencies": {
     "commander": "2.3.0",
+    "duration": "^0.2.0",
+    "moment": "^2.8.3",
     "suncalc": "1.5.2",
     "thehelp-time": "0.5.1",
     "zippity-do-dah": "0.0.2"
@@ -19,17 +23,18 @@
     "test": "grunt"
   },
 
-  "description": "Exports calendar entries for sunrise/sunset",
+  "description": "Exports events for sunrise/sunset in CSV form for import into your favorite calendar program.",
   "keywords": [
     "calendar",
     "sunrise",
-    "sunset"
+    "sunset",
+    "csv"
   ],
 
   "author": "Scott Nonnenberg <scott@nonnenberg.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git@infra:seasons"
+    "url": "git@github.com:scottnonnenberg/suncsv.git"
   }
 }
