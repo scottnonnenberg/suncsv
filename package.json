@@ -5,6 +5,7 @@
   "bin": {
     "sunscv": "bin/suncsv"
   },
+  "preferGlobal": true,
 
   "dependencies": {
     "commander": "2.3.0",

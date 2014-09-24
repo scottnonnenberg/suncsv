@@ -24,7 +24,9 @@ To get it for next year, you can specify your begin and end dates:
 suncsv -z YOURZIP --begin '1/1/2015' --end '12/31/2015' > events.csv
 ```
 
-Now that you've got your `events.csv` file, you can import it into your favorite calendar program. Google Calendar makes it really easy. We can even create a new calendar just for these items:
+## Add to Google Calendar
+
+Now that you've got your `events.csv` file, you can import it into your favorite calendar program. __Google Calendar__ makes it really easy. We can even create a new calendar just for these items:
 
 * Click on the little down arrow beside __My Calendars__
 * Select __Create new calendar__
@@ -43,12 +45,13 @@ Enjoy!
 
 ## Some thoughts on next steps:
 
-* generate it in a more friendly way for spreadsheets
+* Generate it in a more friendly way for spreadsheets
 
   * sunrise and sunset on the same row
   * complete times included along with separated date and time
 
-* add some stuff for equinoxes/solstices/more? http://www.archaeoastronomy.com/2014.html
+* Add some stuff for equinoxes/solstices/more? http://www.archaeoastronomy.com/2014.html
+* We don't always honor start/end dates perfectly if generating events for another timezone
 
 ## License
 
