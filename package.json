@@ -12,7 +12,6 @@
     "duration": "^0.2.0",
     "moment": "^2.8.3",
     "suncalc": "1.5.2",
-    "thehelp-time": "0.5.1",
     "zippity-do-dah": "0.0.2"
   },
   "devDependencies": {
