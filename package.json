@@ -6,23 +6,16 @@
     "suncsv": "bin/suncsv"
   },
   "preferGlobal": true,
-
   "dependencies": {
-    "commander": "2.3.0",
-    "duration": "^0.2.0",
-    "moment": "^2.8.3",
-    "suncalc": "1.5.2",
-    "zippity-do-dah": "0.0.2"
+    "commander": "8.3.0",
+    "duration": "0.2.2",
+    "moment": "2.29.1",
+    "suncalc": "1.8.0",
+    "zippity-do-dah": "0.0.3"
   },
-  "devDependencies": {
-    "grunt": "0.4.5",
-    "thehelp-project": "3.3.1"
-  },
-
   "scripts": {
     "test": "grunt"
   },
-
   "description": "Generates sunrise and sunset calendar items in CSV form for import to your favorite calendar program.",
   "keywords": [
     "calendar",
@@ -30,7 +23,6 @@
     "sunset",
     "csv"
   ],
-
   "author": "Scott Nonnenberg <scott@nonnenberg.com>",
   "license": "MIT",
   "repository": {

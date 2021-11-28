@@ -30,6 +30,13 @@ var startup = function startup(today) {
     .parse(process.argv);
 };
 
+// Okay, here we go...
+
+var today = new Date();
+startup(today);
+
+const options = commander.opts();
+
 var processDay = function processDay(day, gps) {
   // Thanks, `suncalc` for your awesomeness
   var item;
@@ -38,27 +45,21 @@ var processDay = function processDay(day, gps) {
 
   // Print out sunset and sunrise rows
 
-  if (commander.sunrise) {
+  if (options.sunrise) {
     item = util.createItem('Sunrise', times.sunrise, daylight);
     console.log(item);
   }
 
-  if (commander.sunset) {
+  if (options.sunset) {
     item = util.createItem('Sunset', times.sunset, daylight);
     console.log(item);
   }
 };
 
-
-// Okay, here we go...
-
-var today = new Date();
-startup(today);
-
 // Prepare working variables
-var gps = zip.zipcode(commander.zip);
-var day = util.normalizeDate(commander.begin, today);
-var end = util.normalizeDate(commander.end, today);
+var gps = zip.zipcode(options.zip);
+var day = util.normalizeDate(options.begin, today);
+var end = util.normalizeDate(options.end, today);
 
 // Write out the CSV header
 console.log(util.csvHeader);

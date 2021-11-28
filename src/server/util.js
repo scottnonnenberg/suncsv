@@ -11,7 +11,7 @@ exports.DAY_IN_MIL = 1000 * 60 * 60 * 24;
 
 // Create a date from a provided string
 exports.makeDate = function makeDate(date) {
-  return new Date(date);
+  return moment(date).toDate();
 };
 
 // Create a boolean from a provided string
