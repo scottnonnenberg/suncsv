@@ -21,7 +21,7 @@ suncsv -z YOURZIP > events.csv
 To get it for next year, you can specify your begin and end dates:
 
 ```bash
-suncsv -z YOURZIP --begin '1/1/2015' --end '12/31/2015' > events.csv
+suncsv -z YOURZIP --begin '2015-01-01' --end '2015-12-31' > events.csv
 ```
 
 ## Add to Google Calendar
@@ -42,16 +42,6 @@ Once you've created your calendar and are back on the main screen, let's import 
 That should do it! You've got sunrise and sunset times you can easily turn on and off by toggling your new sub-calendar.
 
 Enjoy!
-
-## Some thoughts on next steps:
-
-* Generate it in a more friendly way for spreadsheets
-
-  * sunrise and sunset on the same row
-  * complete times included along with separated date and time
-
-* Add some stuff for equinoxes/solstices/more? http://www.archaeoastronomy.com/2014.html
-* We don't always honor start/end dates perfectly if generating events for another timezone
 
 ## License
 

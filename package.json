@@ -1,6 +1,6 @@
 {
   "name": "suncsv",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "main": "src/server/util.js",
   "bin": {
     "suncsv": "bin/suncsv"

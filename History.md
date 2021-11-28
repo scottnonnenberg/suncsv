@@ -1,3 +1,8 @@
+## 0.2.0 (2021-11-28)
+
+* Better handling of timezones when processing input dates. Now '2022-01-01' means what it should, no matter your timezone.
+* Update dependencies and introduce `package-lock.json`
+
 ## 0.1.2 (2014-11-21)
 
 * Remove nonexistent `thehelp-time` dependency
